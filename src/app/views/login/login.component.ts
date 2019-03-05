@@ -1,4 +1,5 @@
 import { Component } from '@angular/core';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-dashboard',
@@ -6,16 +7,24 @@ import { Component } from '@angular/core';
 })
 export class LoginComponent {
 
-  ClickFunction(event) { 
+  constructor (private router:Router){
 
-    // if (Username==abc@abc.com&&Password==abc) {
-    //   console.log("Good to go");
+  }
+  ClickFunction(event) { 
+/**
+ * == -> It will value only
+ * === -> It will check value and datatype
+ */
+    if (Username==="abc@abc.com" && Password==="abc") {
+      this.router.navigate(['/dashboard']);
       
-    // } else {
-    //   console.log(" Not Good to go");
-    // }
+    } else {
+      alert("Login Alert");
+    }
+
    
-    alert("Login Alert");
+   
+    
     console.log(event);
     // alert("Login Alert");
     // console.log(event);
