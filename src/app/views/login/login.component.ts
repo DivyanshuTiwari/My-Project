@@ -21,7 +21,7 @@ export class LoginComponent {
     if (this.userName.nativeElement.value==="abc@abc.com" && this.userPassword.nativeElement.value==="abc") {
       this.router.navigate(['/dashboard']);  
     } else {
-      alert("Login Alert");
+      alert("Wrong Details");
     }   
     
  }}
