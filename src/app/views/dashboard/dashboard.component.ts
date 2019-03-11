@@ -26,11 +26,14 @@ export class DashboardComponent implements OnInit {
       age:15,      
     },
     {
-      name: "Richeal",
+      name: "Rachel",
       age:25,      
     }
   ]
-
+  /**
+   * to handle click of button
+   * @param event Object
+   */
   showDetails(event){
     if(this.showMoreFlag == true){
       this.showMoreFlag = false;
