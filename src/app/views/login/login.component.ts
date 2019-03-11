@@ -22,6 +22,6 @@ export class LoginComponent {
       this.router.navigate(['/dashboard']);  
     } else {
       alert("Wrong Details");
-    }   
+  }   
     
  }}

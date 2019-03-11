@@ -9,6 +9,38 @@ import { CustomTooltips } from '@coreui/coreui-plugin-chartjs-custom-tooltips';
 export class DashboardComponent implements OnInit {
 
   radioModel: string = 'Month';
+  showMoreFlag: boolean= false;
+
+  public recordList: Array<any> =[
+    {
+      name: "Ankush",
+      age:25,      
+    },
+    {
+      name: "Michael",
+      age:10,
+      student:false      
+    },
+    {
+      name: "John",
+      age:15,      
+    },
+    {
+      name: "Richeal",
+      age:25,      
+    }
+  ]
+
+  showDetails(event){
+    if(this.showMoreFlag == true){
+      this.showMoreFlag = false;
+      event.target.innerText = "Show Details";
+    }
+    else{
+      this.showMoreFlag = true;
+      event.target.innerText = "Hide Details";
+    }    
+  }
 
   // lineChart1
   public lineChart1Data: Array<any> = [
@@ -17,7 +49,7 @@ export class DashboardComponent implements OnInit {
       label: 'Series A'
     }
   ];
-  public lineChart1Labels: Array<any> = ['January', 'February', 'March', 'April', 'May', 'June', 'July'];
+  public lineChart1Labels: Array<any> = ['January', 'March', 'April', 'May', 'June', 'July'];
   public lineChart1Options: any = {
     tooltips: {
       enabled: false,
