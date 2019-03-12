@@ -2,34 +2,22 @@ import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
 import { getStyle, hexToRgba } from '@coreui/coreui/dist/js/coreui-utilities';
 import { CustomTooltips } from '@coreui/coreui-plugin-chartjs-custom-tooltips';
+import { DashboardserviceService } from '../../service/dashboardservice.service';
 
 @Component({
   templateUrl: 'dashboard.component.html'
 })
 export class DashboardComponent implements OnInit {
 
+  constructor(private dashservice:DashboardserviceService){
+
+  }
+  
   radioModel: string = 'Month';
   showMoreFlag: boolean= false;
+  
+  public recordList: Array<any> = this.dashservice.getUserList()
 
-  public recordList: Array<any> =[
-    {
-      name: "Ankush",
-      age:25,      
-    },
-    {
-      name: "Michael",
-      age:10,
-      student:false      
-    },
-    {
-      name: "John",
-      age:15,      
-    },
-    {
-      name: "Rachel",
-      age:25,      
-    }
-  ]
   /**
    * to handle click of button
    * @param event Object
@@ -52,7 +40,7 @@ export class DashboardComponent implements OnInit {
       label: 'Series A'
     }
   ];
-  public lineChart1Labels: Array<any> = ['January', 'March', 'April', 'May', 'June', 'July'];
+  public lineChart1Labels: Array<any> = this.dashservice.getYearList();
   public lineChart1Options: any = {
     tooltips: {
       enabled: false,
@@ -414,6 +402,9 @@ export class DashboardComponent implements OnInit {
   }
 
   ngOnInit(): void {
+
+    alert(this.dashservice.welcomeMessage())
+    
     // generate random values for mainChart
     for (let i = 0; i <= this.mainChartElements; i++) {
       this.mainChartData1.push(this.random(50, 200));
