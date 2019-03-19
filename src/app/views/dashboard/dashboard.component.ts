@@ -12,7 +12,8 @@ export class DashboardComponent implements OnInit {
   constructor(private dashservice:DashboardserviceService){
 
   }
-  
+  teste = "dfgdf";
+
   radioModel: string = 'Month';
   showMoreFlag: boolean= false;
   
